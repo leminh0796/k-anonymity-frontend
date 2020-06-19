@@ -16,7 +16,11 @@ class FileUpload extends Component {
         this.state.selectedFile.name
       );
       console.log(this.state.selectedFile);
-      axios.post("api/uploadfile", formData);
+      axios.post("api/uploadfile", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
     };
     fileData = () => {
         if (this.state.selectedFile) { 
